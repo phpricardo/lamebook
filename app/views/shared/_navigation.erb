@@ -1,0 +1,26 @@
+<nav class="bg-gray-800">
+  <div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
+    <div class="relative flex h-16 items-center justify-between">
+      <div class="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
+        <div class="flex flex-shrink-0 items-center">
+          <img alt="devmaker-logo" class="w-32" src="https://d30axoh7brfk39.cloudfront.net/assets/logo_no_subtitle-4c03f1c65d457da14ded39ae4b493f0389a73816024831335c4259b7de6d0805.svg">
+        </div>
+        <div class="hidden sm:ml-6 sm:block">
+          <div class="flex space-x-4">
+            <%= link_to 'Postagems', root_path, class: "text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"%>
+
+            <% if current_user.present? %>
+              <%= link_to 'Criar Postagem', new_post_path, class: "text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"  %>
+            <% end %>
+
+            <% if user_signed_in? %>
+              <%= button_to 'Sair', destroy_user_session_path, method: :delete, class: "text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium" %>
+            <% else %>
+              <%= link_to 'Acessar', new_user_session_path, class: "text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium" %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>

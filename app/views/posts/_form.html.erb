@@ -1,0 +1,23 @@
+<%= form_with(model: post) do |form| %>
+  <% if post.errors.any? %>
+    <div class="font-regular relative mb-4 block w-full rounded-lg bg-red-500 p-4 text-base leading-5 text-white opacity-100" role="alert">
+      <h2><%= pluralize(post.errors.count, "Erro:") %> Não foi possível salvar essa postagem:</h2>
+
+      <ul>
+        <% post.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+    <div class="relative mb-3 xl:w-96" data-te-input-wrapper-init>
+      <label for="Texto da Postagem", class="sr-only">Texto da Postagem</label>
+      <%= form.text_area :text, placeholder: "Sua mensagem", rows: 4, class: "block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" %>
+    </div>
+
+  <div class="flex space-x-2">
+    <%= form.submit "Criar Postagem", class: "inline-block px-4 py-1.5 bg-gray-600 text-white font-medium leading-tight rounded-full shadow-md hover:bg-gray-700 hover:shadow-lg focus:bg-gray-700"  %>
+  </div>
+
+<% end %>
