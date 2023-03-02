@@ -23,7 +23,7 @@ class PostsController < ApplicationController
   end
 
   def like
-    Like.new(post: @post, user: current_user)
+    Like.create(post: @post, user: current_user)
     redirect_to posts_path
   end
 
